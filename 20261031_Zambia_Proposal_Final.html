@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YAAO × Zambia · Partnership Proposal</title>
+<style>
+  :root{
+    --green:#0A2418; --green2:#1B5E3A; --green3:#2E7D32;
+    --orange:#C86000; --orange2:#E8892B; --orange3:#FFB74D;
+    --cream:#FFFCF8; --paper:#FAFAF7; --grey:#6B7B72; --lgrey:#A0AFA6;
+    --rule:#E8E2D8;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:"Segoe UI","Helvetica Neue",Arial,"Microsoft YaHei",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:#E8E2D8;font-family:var(--sans);color:#222;line-height:1.7}
+  h1,h2,h3{font-family:var(--serif)}
+  .page{max-width:1100px;margin:0 auto;background:var(--cream)}
+
+  /* ═══ Hero（全幅背景图） ═══ */
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;
+    justify-content:flex-end;padding:60px 60px 80px;overflow:hidden}
+  .hero .bg{position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,36,24,.55) 0%,rgba(10,36,24,.75) 50%,rgba(10,36,24,.95) 100%),
+    url('file:///F:/独立站资料/前期网站资料准备明细/5厂房或办公图片/厂区景5.jpg') center/cover}
+  .hero .label{font-size:11px;letter-spacing:8px;color:var(--orange3);font-weight:700;
+    margin-bottom:20px;position:relative;z-index:1;
+    opacity:0;animation:fadeUp .8s ease .3s forwards}
+  .hero h1{font-size:clamp(42px,6vw,72px);font-weight:900;color:#fff;line-height:1.1;
+    letter-spacing:-1px;position:relative;z-index:1;
+    opacity:0;animation:fadeUp .9s ease .5s forwards}
+  .hero h1 span{color:var(--orange3)}
+  .hero .cn{font-size:18px;color:rgba(255,255,255,.6);margin-top:16px;
+    position:relative;z-index:1;
+    opacity:0;animation:fadeUp .8s ease .7s forwards}
+  .hero .divider{width:80px;height:4px;background:var(--orange);margin:32px 0 24px;
+    border-radius:2px;position:relative;z-index:1;
+    opacity:0;animation:fadeUp .8s ease .9s forwards}
+  .hero .sub{font-size:20px;color:rgba(255,255,255,.7);max-width:600px;line-height:1.7;
+    position:relative;z-index:1;
+    opacity:0;animation:fadeUp .8s ease 1.1s forwards}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes growWidth{from{width:0}to{width:var(--w)}}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+  /* ═══ Section ═══ */
+  .sec{padding:80px 60px;position:relative}
+  .sec.alt{background:var(--paper)}
+  .sec-label{font-size:10px;letter-spacing:6px;font-weight:800;color:var(--orange);
+    margin-bottom:12px;text-transform:uppercase}
+  .sec h2{font-size:36px;font-weight:900;color:var(--green);line-height:1.25;letter-spacing:-.5px}
+  .sec h2 em{font-style:normal;color:var(--orange)}
+  .sec .cn{font-size:15px;color:var(--lgrey);margin-top:8px;font-weight:600}
+  .sec .lead{font-size:18px;color:var(--grey);margin-top:20px;max-width:720px;line-height:1.8}
+
+  /* ═══ 工厂实拍大图（带渐变遮罩） ═══ */
+  .photo-hero{position:relative;width:100%;height:520px;border-radius:20px;overflow:hidden;
+    margin:36px 0;box-shadow:0 20px 60px -20px rgba(10,36,24,.25)}
+  .photo-hero img{width:100%;height:100%;object-fit:cover;display:block}
+  .photo-hero .overlay{position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(transparent,rgba(10,36,24,.85));padding:48px 36px 28px}
+  .photo-hero .overlay h4{font-size:22px;font-weight:800;color:#fff}
+  .photo-hero .overlay p{font-size:14px;color:rgba(255,255,255,.65);margin-top:4px}
+
+  /* ═══ 图片网格（4列） ═══ */
+  .photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:32px 0}
+  .photo-grid .item{position:relative;border-radius:14px;overflow:hidden;
+    box-shadow:0 8px 32px -10px rgba(10,36,24,.18)}
+  .photo-grid .item img{width:100%;height:240px;object-fit:cover;display:block;
+    transition:transform .4s ease}
+  .photo-grid .item:hover img{transform:scale(1.05)}
+  .photo-grid .cap{position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(transparent,rgba(10,36,24,.85));padding:28px 16px 12px}
+  .photo-grid .cap h4{font-size:13px;font-weight:800;color:#fff}
+  .photo-grid .cap p{font-size:10px;color:rgba(255,255,255,.55);margin-top:2px}
+
+  /* ═══ SVG 图标插画卡 ═══ */
+  .icon-card{background:#fff;border-radius:18px;padding:36px 30px;text-align:center;
+    box-shadow:0 4px 24px -8px rgba(10,36,24,.08);
+    transition:transform .3s ease,box-shadow .3s ease}
+  .icon-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px -12px rgba(10,36,24,.18)}
+  .icon-card .svg-wrap{width:100px;height:100px;margin:0 auto 20px;
+    border-radius:24px;display:flex;align-items:center;justify-content:center}
+  .icon-card h3{font-size:18px;font-weight:800;color:var(--green);margin-bottom:6px}
+  .icon-card .cn{font-size:12px;color:var(--orange);font-weight:700;margin-bottom:10px}
+  .icon-card p{font-size:13px;color:#666;line-height:1.7}
+
+  /* ═══ 数据卡 ═══ */
+  .data-row{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin:36px 0}
+  .data-card{background:#fff;border-radius:18px;padding:32px 24px;text-align:center;
+    box-shadow:0 4px 24px -8px rgba(10,36,24,.08);
+    transition:transform .3s ease}
+  .data-card:hover{transform:translateY(-4px)}
+  .data-card .num{font-family:var(--serif);font-size:48px;font-weight:900;line-height:1}
+  .data-card .label{font-size:12px;font-weight:800;letter-spacing:1px;margin-top:10px;
+    text-transform:uppercase}
+  .data-card .cn{font-size:12px;color:var(--lgrey);margin-top:6px}
+  .data-card p{font-size:12px;color:#888;margin-top:8px;line-height:1.5}
+
+  /* ═══ 柱状图 ═══ */
+  .chart{margin:36px 0;background:#fff;border-radius:18px;padding:36px 40px;
+    box-shadow:0 4px 24px -8px rgba(10,36,24,.08)}
+  .chart h4{font-size:16px;font-weight:800;color:var(--green);margin-bottom:24px}
+  .chart h4 span{font-size:12px;color:var(--lgrey);font-weight:400;margin-left:8px}
+  .bar-item{display:flex;align-items:center;gap:18px;margin-bottom:18px}
+  .bar-item .name{width:200px;font-size:13px;font-weight:700;color:var(--green);text-align:right}
+  .bar-item .track{flex:1;height:44px;background:#F0EDE6;border-radius:10px;overflow:hidden}
+  .bar-item .fill{height:100%;border-radius:10px;display:flex;align-items:center;
+    padding:0 18px;font-size:14px;font-weight:800;color:#fff;white-space:nowrap;
+    animation:growWidth 1.2s cubic-bezier(.25,.46,.45,.94) forwards;--w:0%}
+
+  /* ═══ 双栏 ═══ */
+  .dual{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:36px 0}
+  .dcard{border-radius:20px;padding:40px 36px}
+  .dcard.farm{background:linear-gradient(135deg,#FFF8F0 0%,#FFE8CC 100%);border:2px solid #F0D0A0}
+  .dcard.biz{background:linear-gradient(135deg,#E8F5E9 0%,#C8E6C9 100%);border:2px solid #A5D6A7}
+  .dcard .label{font-size:10px;letter-spacing:5px;font-weight:800;margin-bottom:10px}
+  .dcard.farm .label{color:var(--orange)}
+  .dcard.biz .label{color:var(--green3)}
+  .dcard h3{font-size:24px;font-weight:900;color:var(--green);margin-bottom:6px}
+  .dcard .cn{font-size:13px;color:#888;margin-bottom:18px}
+  .dcard ul{list-style:none;padding:0}
+  .dcard li{font-size:14px;color:#444;line-height:1.75;padding-left:24px;
+    position:relative;margin-bottom:8px}
+  .dcard li::before{content:"▸";position:absolute;left:0;font-size:13px}
+  .dcard.farm li::before{color:var(--orange)}
+  .dcard.biz li::before{color:var(--green3)}
+
+  /* ═══ 三档 ═══ */
+  .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:36px 0}
+  .tier{border-radius:18px;padding:32px 28px}
+  .tier.confirmed{background:linear-gradient(135deg,#E8F5E9,#C8E6C9);border:2px solid #A5D6A7}
+  .tier.negotiable{background:linear-gradient(135deg,#FFF8F0,#FFE8CC);border:2px solid #F0D0A0}
+  .tier.training{background:linear-gradient(135deg,#F0F4FF,#D8E4F8);border:2px solid #B8CCE8}
+  .tier .icon{width:52px;height:52px;border-radius:14px;display:flex;
+    align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;background:#fff}
+  .tier h4{font-size:18px;font-weight:800;color:var(--green);margin-bottom:4px}
+  .tier .cn{font-size:12px;color:#888;margin-bottom:14px}
+  .tier ul{list-style:none;padding:0}
+  .tier li{font-size:13px;color:#444;line-height:1.7;padding-left:20px;position:relative;margin-bottom:6px}
+  .tier li::before{content:"·";position:absolute;left:4px;font-weight:900}
+  .tier.confirmed li::before{color:var(--green3)}
+  .tier.negotiable li::before{color:var(--orange)}
+  .tier.training li::before{color:#4A6FA5}
+
+  /* ═══ 风险 ═══ */
+  .risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:36px 0}
+  .risk{background:#fff;border-radius:16px;padding:28px 30px;
+    box-shadow:0 4px 20px -6px rgba(10,36,24,.08);display:flex;gap:18px}
+  .risk .icon{width:48px;height:48px;border-radius:12px;background:#FFF3E0;
+    display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .risk h4{font-size:15px;font-weight:800;color:var(--green);margin-bottom:4px}
+  .risk .cn{font-size:11px;color:var(--orange);font-weight:700;margin-bottom:6px}
+  .risk p{font-size:13px;color:#555;line-height:1.65}
+  .risk .fix{margin-top:10px;background:#F4F8F3;border-radius:8px;padding:10px 16px;
+    font-size:12px;color:var(--green3);font-weight:700}
+  .risk .fix::before{content:"→ ";color:var(--orange)}
+
+  /* ═══ 案例 ═══ */
+  .case{background:#fff;border-radius:18px;padding:36px 40px;margin:32px 0;
+    box-shadow:0 4px 24px -8px rgba(10,36,24,.08);border-top:4px solid var(--orange)}
+  .case h4{font-size:18px;font-weight:800;color:var(--green);margin-bottom:6px}
+  .case .cn{font-size:12px;color:var(--orange);font-weight:700;margin-bottom:12px}
+  .case p{font-size:14px;color:#444;line-height:1.75}
+  .case .src{font-size:11px;color:var(--lgrey);margin-top:10px;font-style:italic}
+
+  /* ═══ 金句（背景图） ═══ */
+  .quote-section{padding:120px 60px;text-align:center;position:relative;overflow:hidden}
+  .quote-section .bg{position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(10,36,24,.88),rgba(27,94,58,.85)),
+    url('file:///F:/独立站资料/前期网站资料准备明细/5厂房或办公图片/厂区景7.jpg') center/cover}
+  .quote-section blockquote{font-family:var(--serif);font-size:clamp(28px,4vw,42px);
+    font-weight:700;color:#fff;max-width:800px;margin:0 auto;line-height:1.5;
+    position:relative;z-index:1}
+  .quote-section .cn{font-size:16px;color:rgba(255,255,255,.55);margin-top:20px;
+    position:relative;z-index:1}
+
+  /* ═══ 时间线 ═══ */
+  .steps{display:flex;gap:20px;margin:36px 0;position:relative}
+  .steps::before{content:"";position:absolute;top:38px;left:60px;right:60px;
+    height:3px;background:linear-gradient(90deg,var(--orange),var(--orange2),var(--green3));
+    border-radius:2px;z-index:0}
+  .step{flex:1;position:relative;z-index:1;text-align:center;padding:0 12px}
+  .step .dot{width:22px;height:22px;border-radius:50%;background:var(--orange);
+    border:5px solid var(--cream);margin:28px auto 16px;
+    box-shadow:0 4px 16px -4px rgba(200,96,0,.4)}
+  .step .time{font-size:11px;font-weight:800;color:var(--orange);
+    font-family:monospace;letter-spacing:1px}
+  .step h4{font-size:15px;font-weight:800;color:var(--green);margin-top:6px}
+  .step .cn{font-size:11px;color:var(--lgrey);margin-top:4px}
+  .step p{font-size:12px;color:#777;line-height:1.6;margin-top:8px}
+
+  /* ═══ Footer ═══ */
+  .foot{background:var(--green);padding:48px 60px;display:flex;
+    justify-content:space-between;align-items:center}
+  .foot .l h3{font-size:22px;font-weight:900;color:#fff;font-family:var(--serif)}
+  .foot .l p{font-size:13px;color:rgba(255,255,255,.4);margin-top:6px}
+  .foot .r{text-align:right;font-size:12px;color:rgba(255,255,255,.35);line-height:1.8}
+
+  /* ═══ 滚动动画 ═══ */
+  .reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.25,.46,.45,.94)}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  /* ═══ 环形图（SVG） ═══ */
+  .donut-row{display:flex;gap:36px;margin:32px 0;align-items:center;justify-content:center}
+  .donut{text-align:center}
+  .donut svg{width:200px;height:200px}
+  .donut .val{font-family:var(--serif);font-size:32px;font-weight:900;color:var(--green);
+    margin-top:12px}
+  .donut .lbl{font-size:12px;color:var(--grey);margin-top:4px}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══════ HERO（工厂航拍背景） ═══════ -->
+  <div class="hero">
+    <div class="bg"></div>
+    <div class="label">YAAO AGRICULTURAL MACHINERY · EST. 1976 · 50 YEARS</div>
+    <h1>Your Machine Is Here.<br><span>Let's Prove It Works.</span></h1>
+    <div class="cn">您的机器已经到了。让我们用它证明一切。</div>
+    <div class="divider"></div>
+    <div class="sub">A partnership proposal for Zambia. Built on real data, real photos, and honest expectations.</div>
+  </div>
+
+  <!-- ═══════ ① 你的故事（工厂实拍大图） ═══════ -->
+  <div class="sec">
+    <div class="sec-label reveal">Your Story</div>
+    <h2 class="reveal">This isn't a sales pitch.<br><em>It's your story.</em></h2>
+    <div class="cn reveal">这不是推销，是您的故事</div>
+    <div class="lead reveal">
+      You ordered a 2BMQ-6 air-suction precision planter. It's paid. It's shipping to Zambia right now. This season, it will plant your farm. And if it works as well as we believe it will, it will plant many more.
+    </div>
+
+    <div class="photo-hero reveal">
+      <img src="file:///F:/客户开发/客户档案/赞比亚 气吸播 已结清13533usd 10月下旬到货/装车/裸车.jpg" alt="2BMQ-6">
+      <div class="overlay">
+        <h4>Your 2BMQ-6 Air-Suction Precision Planter</h4>
+        <p>您的 2BMQ-6 气吸式精量播种机 · $13,533 · Arriving late October</p>
+      </div>
+    </div>
+
+    <div class="photo-grid reveal">
+      <div class="item">
+        <img src="file:///F:/客户开发/客户档案/赞比亚 气吸播 已结清13533usd 10月下旬到货/装车/装箱.jpg" alt="">
+        <div class="cap"><h4>Professional Packing</h4><p>专业包装</p></div>
+      </div>
+      <div class="item">
+        <img src="file:///F:/客户开发/客户档案/赞比亚 气吸播 已结清13533usd 10月下旬到货/装车/d44b17199ca9417a901c7e7290463e90.jpg" alt="">
+        <div class="cap"><h4>Loading & Shipping</h4><p>装车发货</p></div>
+      </div>
+      <div class="item">
+        <img src="file:///F:/独立站资料/前期网站资料准备明细/5厂房或办公图片/AGV自动牵引车(1) - 副本.jpg" alt="">
+        <div class="cap"><h4>Smart Factory</h4><p>智能工厂</p></div>
+      </div>
+      <div class="item">
+        <img src="file:///F:/独立站资料/前期网站资料准备明细/5厂房或办公图片/刀轴镗孔线.jpg" alt="">
+        <div class="cap"><h4>Precision Machining</h4><p>精密加工</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ ② 赞比亚市场（SVG 图标 + 数据） ═══════ -->
+  <div class="sec alt">
+    <div class="sec-label reveal">Zambia Market</div>
+    <h2 class="reveal">Something big is<br><em>happening in Zambia.</em></h2>
+    <div class="cn reveal">赞比亚正在发生一件大事</div>
+
+    <!-- 4 张图标卡 -->
+    <div class="data-row reveal" style="grid-template-columns:repeat(4,1fr)">
+      <div class="icon-card">
+        <div class="svg-wrap" style="background:#FFF3E0">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#C86000" stroke-width="1.8" stroke-linecap="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>4.9 Mt Harvest</h3>
+        <div class="cn">历史新高产量</div>
+        <p>Record maize harvest 2025/26, up 225% from drought year.</p>
+      </div>
+      <div class="icon-card">
+        <div class="svg-wrap" style="background:#E8F5E9">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="1.8" stroke-linecap="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <h3>94% Smallholders</h3>
+        <div class="cn">中小农户主导</div>
+        <p>Smallholders produce 94% of output but own almost no machinery.</p>
+      </div>
+      <div class="icon-card">
+        <div class="svg-wrap" style="background:#E3F2FD">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#1B5E8C" stroke-width="1.8" stroke-linecap="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
+            <path d="M14 21V13h4v8"/>
+          </svg>
+        </div>
+        <h3>0% Import Duty</h3>
+        <div class="cn">零关税进口</div>
+        <p>Agricultural machinery: 0% duty. Government promotes mechanization.</p>
+      </div>
+      <div class="icon-card">
+        <div class="svg-wrap" style="background:#F3E5F5">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#7B1FA2" stroke-width="1.8" stroke-linecap="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+          </svg>
+        </div>
+        <h3>$760M Investment</h3>
+        <div class="cn">政府投入</div>
+        <p>Government investing $760M in irrigation and mechanization.</p>
+      </div>
+    </div>
+
+    <!-- 柱状图 -->
+    <div class="chart reveal">
+      <h4>Maize Production Trend <span>· 玉米产量趋势（百万吨）</span></h4>
+      <div class="bar-item">
+        <div class="name">2023/24 (Drought)</div>
+        <div class="track"><div class="fill" style="--w:31%;background:#C0392B;animation-delay:.2s">1.51 Mt</div></div>
+      </div>
+      <div class="bar-item">
+        <div class="name">2024/25 (Recovery)</div>
+        <div class="track"><div class="fill" style="--w:74%;background:#E8892B;animation-delay:.4s">3.87 Mt</div></div>
+      </div>
+      <div class="bar-item">
+        <div class="name">2025/26 (Record)</div>
+        <div class="track"><div class="fill" style="--w:100%;background:#2E7D32;animation-delay:.6s">4.9 Mt</div></div>
+      </div>
+    </div>
+
+    <!-- 环形图 -->
+    <div class="donut-row reveal">
+      <div class="donut">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#F0EDE6" stroke-width="18"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#C86000" stroke-width="18"
+            stroke-dasharray="314" stroke-dashoffset="173" stroke-linecap="round"
+            transform="rotate(-90 60 60)"/>
+        </svg>
+        <div class="val">46%</div>
+        <div class="lbl">Ox-draught farming</div>
+      </div>
+      <div class="donut">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#F0EDE6" stroke-width="18"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#2E7D32" stroke-width="18"
+            stroke-dasharray="314" stroke-dashoffset="297" stroke-linecap="round"
+            transform="rotate(-90 60 60)"/>
+        </svg>
+        <div class="val">2%</div>
+        <div class="lbl">Mechanical power</div>
+      </div>
+      <div class="donut">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#F0EDE6" stroke-width="18"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#C0392B" stroke-width="18"
+            stroke-dasharray="314" stroke-dashoffset="312" stroke-linecap="round"
+            transform="rotate(-90 60 60)"/>
+        </svg>
+        <div class="val">0.2%</div>
+        <div class="lbl">Tractor ownership</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ ③ 工厂实力（全幅工厂图） ═══════ -->
+  <div class="sec">
+    <div class="sec-label reveal">Our Factory</div>
+    <h2 class="reveal">50 years of manufacturing.<br><em>See for yourself.</em></h2>
+    <div class="cn reveal">50 年制造经验，眼见为实</div>
+    <div class="lead reveal">
+      Our factory in Nanyang, China has been building seeders since 1976. Every part is designed and manufactured in-house. This isn't a trading company. This is where your machine is born.
+    </div>
+
+    <div class="photo-hero reveal">
+      <img src="file:///F:/独立站资料/前期网站资料准备明细/5厂房或办公图片/厂区景5.jpg" alt="Factory">
+      <div class="overlay">
+        <h4>YAAO Manufacturing Base · Nanyang, China</h4>
+        <p>亚澳制造基地 · 河南南阳 · Since 1976</p>
+      </div>
+    </div>
+
+    <div class="photo-grid reveal">
+      <div class="item">
+        <img src="file:///F:/独立站资料/前期网站资料准备明细/5厂房或办公图片/工厂大门.jpg" alt="">
+        <div class="cap"><h4>Factory Gate</h4><p>工厂大门</p></div>
+      </div>
+      <div class="item">
+        <img src="file:///F:/独立站资料/前期网站资料准备明细/5厂房或办公图片/大厅1.jpg" alt="">
+        <div class="cap"><h4>Reception Hall</h4><p>展厅大厅</p></div>
+      </div>
+      <div class="item">
+        <img src="file:///F:/独立站资料/前期网站资料准备明细/5厂房或办公图片/刀轴镗孔线.jpg" alt="">
+        <div class="cap"><h4>Machining Line</h4><p>加工产线</p></div>
+      </div>
+      <div class="item">
+        <img src="file:///F:/独立站资料/前期网站资料准备明细/5厂房或办公图片/AGV自动牵引车(1) - 副本.jpg" alt="">
+        <div class="cap"><h4>AGV Automation</h4><p>自动化物流</p></div>
+      </div>
+    </div>
+
+    <div class="photo-grid reveal" style="grid-template-columns:repeat(3,1fr)">
+      <div class="item">
+        <img src="file:///F:/独立站资料/前期网站资料准备明细/5厂房或办公图片/厂区景1.jpg" alt="">
+        <div class="cap"><h4>Factory View 1</h4><p>厂区实拍</p></div>
+      </div>
+      <div class="item">
+        <img src="file:///F:/独立站资料/前期网站资料准备明细/5厂房或办公图片/厂区景3.jpg" alt="">
+        <div class="cap"><h4>Factory View 2</h4><p>厂区实拍</p></div>
+      </div>
+      <div class="item">
+        <img src="file:///F:/独立站资料/前期网站资料准备明细/5厂房或办公图片/大厅3.jpg" alt="">
+        <div class="cap"><h4>Exhibition Hall</h4><p>产品展厅</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ ④ 双重位置 ═══════ -->
+  <div class="sec alt">
+    <div class="sec-label reveal">Your Dual Position</div>
+    <h2 class="reveal">One machine.<br><em>Two opportunities.</em></h2>
+    <div class="cn reveal">一台机器，两个机会</div>
+
+    <div class="dual reveal">
+      <div class="dcard farm">
+        <div class="label">FARM · 农场</div>
+        <h3>Plant Your Own Farm</h3>
+        <div class="cn">种好您自己的农场</div>
+        <ul>
+          <li>98% spacing accuracy, one seed per hill</li>
+          <li>6-row no-till design, save time and soil</li>
+          <li>Cold-drawn shaft, built for hard soil</li>
+          <li>This season: prove it on your own land</li>
+        </ul>
+      </div>
+      <div class="dcard biz">
+        <div class="label">BUSINESS · 生意</div>
+        <h3>Help Your Neighbors</h3>
+        <div class="cn">帮邻居也种好</div>
+        <ul>
+          <li>Your machine working is the best advertisement</li>
+          <li>Neighbors see results, they want one too</li>
+          <li>Full range: planters + tillers + parts</li>
+          <li>We support you: training, materials, after-sales</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case reveal">
+      <h4>Real Case: John Deere x MUSIKA x CFU, Zambia</h4>
+      <div class="cn">真实案例：赞比亚农机服务模式</div>
+      <p>Farmers acquired tractors through dealer loans, then repaid by providing mechanization services to neighboring farms. FAO reports <strong>28 service providers established, with zero loan defaults</strong> among participating clients.</p>
+      <div class="src">Source: FAO Climate-Smart Agriculture Sourcebook, Case Study B1-1</div>
+    </div>
+  </div>
+
+  <!-- ═══════ ⑤ 三档承诺 ═══════ -->
+  <div class="sec">
+    <div class="sec-label reveal">What We Offer</div>
+    <h2 class="reveal">Three tiers.<br><em>No surprises.</em></h2>
+    <div class="cn reveal">三档承诺，没有意外</div>
+
+    <div class="tier-grid reveal">
+      <div class="tier confirmed">
+        <div class="icon">✅</div>
+        <h4>Confirmed</h4>
+        <div class="cn">已确定</div>
+        <ul>
+          <li>Spare parts list (air freight, 1 week)</li>
+          <li>Remote technical support</li>
+          <li>English manual + training videos</li>
+          <li>After-sales skills training</li>
+          <li>Marketing materials</li>
+        </ul>
+      </div>
+      <div class="tier negotiable">
+        <div class="icon">🤝</div>
+        <h4>Negotiable</h4>
+        <div class="cn">可以谈</div>
+        <ul>
+          <li>Dealer pricing</li>
+          <li>Delivery terms</li>
+          <li>Parts stocking plan</li>
+          <li>Payment terms</li>
+          <li>Local configuration</li>
+        </ul>
+      </div>
+      <div class="tier training">
+        <div class="icon">🌏</div>
+        <h4>Training in China</h4>
+        <div class="cn">来华培训</div>
+        <ul>
+          <li>Visit our factory in China</li>
+          <li><strong>Free accommodation & meals</strong></li>
+          <li>Hands-on assembly & troubleshooting</li>
+          <li>See 50 years of manufacturing</li>
+          <li>Meet the team behind your machine</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ ⑥ 诚实成本 ═══════ -->
+  <div class="sec alt">
+    <div class="sec-label reveal">Honest Economics</div>
+    <h2 class="reveal">We won't guess your profit.<br><em>We'll calculate it together.</em></h2>
+    <div class="cn reveal">我们不猜利润，我们一起算</div>
+    <div class="lead reveal">
+      Your margins depend on your local market, your customers, and your costs. What we can do is sit down and build a real cost model together.
+    </div>
+
+    <div class="chart reveal">
+      <h4>Cost Formula <span>· 成本计算公式</span></h4>
+      <div style="background:#FAFAF7;border-radius:12px;padding:24px 30px;font-size:15px;
+        color:#333;line-height:2.2;font-family:monospace">
+        <strong style="color:#C86000">Landed cost</strong> = Machine + Freight + Insurance + Inland delivery<br>
+        <strong style="color:#C86000">Selling price</strong> = Based on local market<br>
+        <strong style="color:#2E7D32">Gross profit</strong> = Selling price &minus; Landed cost
+      </div>
+    </div>
+
+    <div style="background:#FFF3E0;border-radius:14px;padding:22px 28px;margin:24px 0;
+      font-size:14px;color:#8B5E00;font-weight:600;line-height:1.8">
+      <strong>⚠️ Honest note about CKD:</strong> Zambia's agricultural machinery import duty is 0%. So CKD's main advantage here is freight savings and flexibility, not tariff reduction. We want you to know this upfront.
+    </div>
+  </div>
+
+  <!-- ═══════ ⑦ 风险透明 ═══════ -->
+  <div class="sec">
+    <div class="sec-label reveal">Risks & Solutions</div>
+    <h2 class="reveal">We'll tell you the risks.<br><em>That's how trust works.</em></h2>
+    <div class="cn reveal">我们愿意说出风险，信任就是这样建立的</div>
+
+    <div class="risk-grid reveal">
+      <div class="risk">
+        <div class="icon">🌧️</div>
+        <div>
+          <h4>Seasonal Timing</h4>
+          <div class="cn">季节性</div>
+          <p>Sowing season is Oct-Dec. Late arrival means missing the window.</p>
+          <div class="fix">Your machine ships now, arriving before sowing season.</div>
+        </div>
+      </div>
+      <div class="risk">
+        <div class="icon">💱</div>
+        <div>
+          <h4>Currency Fluctuation</h4>
+          <div class="cn">汇率波动</div>
+          <p>USD/ZMW rates change, affecting your landed cost.</p>
+          <div class="fix">Pricing locked for 30 days. Payment in USD avoids conversion risk.</div>
+        </div>
+      </div>
+      <div class="risk">
+        <div class="icon">🔧</div>
+        <div>
+          <h4>Operator Skill</h4>
+          <div class="cn">操作技能</div>
+          <p>AGCO Zambia shows breakdowns often come from low operator skill.</p>
+          <div class="fix">Training built in: remote guidance + optional factory visit.</div>
+        </div>
+      </div>
+      <div class="risk">
+        <div class="icon">📦</div>
+        <div>
+          <h4>Spare Parts</h4>
+          <div class="cn">备件供应</div>
+          <p>Without parts, even small issues stop the machine during sowing.</p>
+          <div class="fix">Complete parts list. Air freight within 1 week.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ 金句（工厂背景） ═══════ -->
+  <div class="quote-section">
+    <div class="bg"></div>
+    <blockquote>
+      The machine that works your farm proves the quality.<br>
+      The machine you sell proves the business.
+    </blockquote>
+    <div class="cn">帮你种好农场的机器，证明了质量。你卖出去的机器，证明了生意。</div>
+  </div>
+
+  <!-- ═══════ ⑧ 下一步 ═══════ -->
+  <div class="sec">
+    <div class="sec-label reveal">Next Steps</div>
+    <h2 class="reveal">Let's start small.<br><em>Prove it. Then grow.</em></h2>
+    <div class="cn reveal">从小做起，证明它，然后一起成长</div>
+    <div class="lead reveal">
+      We're not asking for a big commitment. We're asking to run your machine this season, show the results, and then decide together what comes next.
+    </div>
+
+    <div class="steps reveal">
+      <div class="step">
+        <div class="dot"></div>
+        <div class="time">NOW</div>
+        <h4>Receive Machine</h4>
+        <div class="cn">收到机器</div>
+        <p>Arriving late October. Remote installation guidance included.</p>
+      </div>
+      <div class="step">
+        <div class="dot"></div>
+        <div class="time">WEEK 1-2</div>
+        <h4>Setup & Training</h4>
+        <div class="cn">安装培训</div>
+        <p>WhatsApp video support. English manual. Operation training.</p>
+      </div>
+      <div class="step">
+        <div class="dot"></div>
+        <div class="time">SEASON</div>
+        <h4>Plant Your Farm</h4>
+        <div class="cn">播种自己的农场</div>
+        <p>Run it. Collect data. Let neighbors see it work.</p>
+      </div>
+      <div class="step">
+        <div class="dot"></div>
+        <div class="time">MONTH 2-3</div>
+        <h4>First Neighbor Sale</h4>
+        <div class="cn">首单邻居</div>
+        <p>When a neighbor wants one, you order and we deliver.</p>
+      </div>
+      <div class="step">
+        <div class="dot"></div>
+        <div class="time">SEASON 2</div>
+        <h4>Grow Together</h4>
+        <div class="cn">一起成长</div>
+        <p>More sales, more support, more opportunity.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ Footer ═══════ -->
+  <div class="foot">
+    <div class="l">
+      <h3>YAAO × Zambia</h3>
+      <p>Real Data · Real Photos · Real Partnership</p>
+    </div>
+    <div class="r">
+      YAAO Agricultural Machinery · Est. 1976<br>
+      50 Years of Seeders Only
+    </div>
+  </div>
+
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
